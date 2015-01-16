@@ -1,6 +1,5 @@
 package trends;
 
-import java.util.Comparator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

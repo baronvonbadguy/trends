@@ -2,15 +2,11 @@ package trends;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.math3.stat.descriptive.moment.StandardDeviation;
 
 import processing.core.PApplet;
-import processing.core.PShape;
-import processing.core.PVector;
 
 public class Graph {
 	PApplet p; // parent PApplet
@@ -21,7 +17,7 @@ public class Graph {
 	private String searchTerm, wikiTerm;
 	private ArrayList<int[]> colorArray = new ArrayList<int[]>();
 
-	Graph(PApplet p, int heightMax, List statsList, String searchTerm, String wikiTerm) {
+	Graph(PApplet p, int heightMax, List<Stat> statsList, String searchTerm, String wikiTerm) {
 		this.p = p;
 		this.heightMax = heightMax;
 		this.statsList = statsList;
@@ -78,9 +74,9 @@ public class Graph {
 	    	if (Math.abs(viewsList[i] - unfilteredMean) < 10 * deviation){
 	    		sum += viewsList[i];
 	    	}
-	    	else { amountRemoved++; p.println(viewsList[i] + " not counted"); }
+	    	else { amountRemoved++; PApplet.println(viewsList[i] + " not counted"); }
 	    } 
-	    p.println("got mean: " + sum / (viewsList.length - amountRemoved));
+	    PApplet.println("got mean: " + sum / (viewsList.length - amountRemoved));
 	    return (int) sum / (viewsList.length - amountRemoved);
 	}
 	
@@ -124,10 +120,10 @@ public class Graph {
 			Stat s = statsList.get(i);
 			x = padding + (i * w);
 			if (i == 0)
-				h = -p.map(s.getViews(), 0, graphsHeightMax, 0, heightMax);
+				h = -PApplet.map(s.getViews(), 0, graphsHeightMax, 0, heightMax);
 			else
-			h = -p.map(s.getViews(), 0, graphsHeightMax, 0, heightMax)
-					+ p.map(p.noise(i + p.frameCount * (float) .005), -1, 1,
+			h = -PApplet.map(s.getViews(), 0, graphsHeightMax, 0, heightMax)
+					+ PApplet.map(p.noise(i + p.frameCount * (float) .005), -1, 1,
 							-10, 10);
 			// checks to see if mouse is over bar
 			p.noiseDetail(7, (float) 0.05);
@@ -170,14 +166,14 @@ public class Graph {
 		int labelPosY = p.height - 10,
 			labelWidth = 105 / ((Trends)p).graphs.size(),
 			labelPosX =  10 + (graphsIndex * labelWidth),
-			labelHeight = - (int) p.map(statsList.get(0).getViews(), 0, ((Trends)p).graphs.get(0).statsList.get(0).getViews(), 0, heightMax) - (p.height - 10 - y);
+			labelHeight = - (int) PApplet.map(statsList.get(0).getViews(), 0, ((Trends)p).graphs.get(0).statsList.get(0).getViews(), 0, heightMax) - (p.height - 10 - y);
 		if (renderDates)
 			p.fill(p.color(p.hue(fillColor), p.saturation(fillColor), p.brightness(fillColor) + 30, 100));
 		else p.fill(p.color(p.hue(fillColor), p.saturation(fillColor), p.brightness(fillColor) + 30, 75));
 		//draws the label
 		p.rect(labelPosX, labelPosY, labelWidth * (((Trends)p).graphs.size() - graphsIndex), labelHeight, 10, 0, 0, 10);
 		//draws the perspective element connecting the label and the graph
-		p.beginShape(p.POLYGON);
+		p.beginShape(PApplet.POLYGON);
 		
 			if (renderDates)
 				p.fill(p.color(p.hue(fillColor), p.saturation(fillColor), p.brightness(fillColor) + 28, 100));
@@ -191,7 +187,7 @@ public class Graph {
 			else p.fill(p.color(p.hue(fillColor), p.saturation(fillColor), p.brightness(fillColor), 75));
 			
 			p.vertex(padding, p.height - 50);
-			p.vertex(padding, (p.height - 50) - (int) p.map(statsList.get(0).getViews(), 0, graphsHeightMax, 0, heightMax));
+			p.vertex(padding, (p.height - 50) - (int) PApplet.map(statsList.get(0).getViews(), 0, graphsHeightMax, 0, heightMax));
 			
 		p.endShape();
 		
@@ -206,8 +202,8 @@ public class Graph {
 		//draws the label title
 		p.pushMatrix();
 		p.translate(labelPosX + (labelWidth / 2) - 4, labelPosY + (labelHeight / 2));
-		p.rotate(p.radians(90));
-		p.textAlign(p.CENTER);
+		p.rotate(PApplet.radians(90));
+		p.textAlign(PApplet.CENTER);
 		p.text(wikiSpace, 0, 0);
 		//p.text(wikiSpace, labelPosX + (labelWidth / 2) - 4, labelPosY + (labelHeight / 2) - ((wikiTerm.length() * 20) / 2));
 		p.popMatrix();
@@ -237,7 +233,7 @@ public class Graph {
 		
 		// set methods
 
-		public void setStats(List statsList) {
+		public void setStats(List<Stat> statsList) {
 			this.statsList = statsList;
 		}
 

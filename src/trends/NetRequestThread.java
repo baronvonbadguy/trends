@@ -1,12 +1,9 @@
 package trends;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 import processing.core.PApplet;
-import trends.JSONResultsWiki.Page;
 import trends.Trends;
 
 public class NetRequestThread extends Thread {
@@ -49,7 +46,7 @@ public class NetRequestThread extends Thread {
 				scraping = true;
 				Parameters param = paramQueue.get(0);
 				if (param != null) {
-					p.println("views = " + param.getTerm());
+					PApplet.println("views = " + param.getTerm());
 					((Trends) p).getWikiStats(param.getTerm());
 					paramQueue.remove(0);
 				}
