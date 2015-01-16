@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="library/commons-math3-3.3.jar"/>
+	<classpathentry kind="lib" path="library/controlP5.jar"/>
+	<classpathentry kind="lib" path="library/core.jar"/>
+	<classpathentry kind="lib" path="library/gluegen-rt.jar"/>
+	<classpathentry kind="lib" path="library/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="library/jbox2d-library-2.2.1.1.jar"/>
+	<classpathentry kind="lib" path="library/jogl-all.jar"/>
+	<classpathentry kind="lib" path="/home/sunshine/workspace/Trends/library/commons-codec-1.4.jar"/>
+	<classpathentry kind="lib" path="/home/sunshine/workspace/Trends/library/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/sunshine/workspace/Trends/library/gluegen-rt-natives-linux-amd64.jar"/>
+	<classpathentry kind="lib" path="/home/sunshine/workspace/Trends/library/httpclient-4.1.2.jar"/>
+	<classpathentry kind="lib" path="/home/sunshine/workspace/Trends/library/httpclient-cache-4.1.2.jar"/>
+	<classpathentry kind="lib" path="/home/sunshine/workspace/Trends/library/httpcore-4.1.2.jar"/>
+	<classpathentry kind="lib" path="/home/sunshine/workspace/Trends/library/httpmime-4.1.2.jar"/>
+	<classpathentry kind="lib" path="/home/sunshine/workspace/Trends/library/httprequests_processing.jar"/>
+	<classpathentry kind="lib" path="/home/sunshine/workspace/Trends/library/jogl-all-natives-linux-amd64.jar"/>
+	<classpathentry kind="lib" path="/home/sunshine/workspace/Trends/library/toxiclibscore.jar"/>
+	<classpathentry kind="lib" path="/home/sunshine/workspace/Trends/library/verletphysics.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
